@@ -20,7 +20,7 @@ end
 
 # Function to decode a Morse code word
 def decode_word(morse_word)
-  morse_word.split(' ').map do |morse_char|
+  morse_word.split('').map do |morse_char|
     decode_char(morse_char)
   end.join('')
 end
