@@ -16,17 +16,24 @@ def decode_char(morse_char)
   MORSE_CODE_DICT.key(morse_char)
 end
 
-# Test the function
-puts decode_char('.-')  # Should print 'A'
-puts decode_char('-..')  # Should print 'D'
-
 # Function to decode a Morse code word
 def decode_word(morse_word)
   english_word = morse_word.split(' ').map do |morse_char|
     decode_char(morse_char)
   end.join('')
+
   english_word
 end
+
+# Function to decode an entire Morse code message
+def decode(morse_message)
+  english_message = morse_message.split('   ').map do |morse_word|
+    decode_word(morse_word)
+  end.join(' ')
+
+  english_message
+end
+
 # Test the function
-puts decode_word('-- -.--')  # Should print 'MY'
-puts decode_word('.- -. -..')  # Should print 'AND'
+puts decode("      .-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...")
+
