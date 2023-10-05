@@ -19,3 +19,14 @@ end
 # Test the function
 puts decode_char('.-')  # Should print 'A'
 puts decode_char('-..')  # Should print 'D'
+
+# Function to decode a Morse code word
+def decode_word(morse_word)
+  english_word = morse_word.split(' ').map do |morse_char|
+    decode_char(morse_char)
+  end.join('')
+  english_word
+end
+# Test the function
+puts decode_word('-- -.--')  # Should print 'MY'
+puts decode_word('.- -. -..')  # Should print 'AND'
